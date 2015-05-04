@@ -1,17 +1,50 @@
 module.exports={
-    loginInfo : [
+    gadgets : [
         {
-            icon: "https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png",
-            text: "Login with Facebook",
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 1,
         },
 
         {
-            icon: "http://www.fparchitects.co.uk/about/icon/black%20google+%20W.png",
-            text: "Login with Google+",
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 2,
         },
         {
-            icon: "http://www.businesscomputingworld.co.uk/wp-content/uploads/2014/09/linkedin.png",
-            text: "Login with Linkedin",
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 3,
+        },
+        {
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 1,
+        },
+    ],
+    cadouriTrasnite: [
+        {
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 1,
+        },
+
+        {
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 2,
+        },
+        {
+            img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+            id : 3,
         },
     ],
     about: {

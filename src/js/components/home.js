@@ -7,7 +7,6 @@ var HeaderMobile = require('../components/header-mobile');
 var HeaderDesktop = require('../components/header-desktop');
 var Footer = require('../components/footer');
 var DesktopMmenu = require('../components/desktop-menu');
-var DesktopCategories = require('../components/desktop-categories');
 var Slideshow = require('../components/slideshow');
 var ProductList = require('../components/product-list');
 

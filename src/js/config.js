@@ -4,14 +4,14 @@ module.exports={
             img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
             titlu: "titlu",
             pret: "pret",
-            id : 1,
+            id : "produs1",
         },
 
         {
             img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
             titlu: "titlu",
             pret: "pret",
-            id : 2,
+            id : "produs2",
         },
         {
             img: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
@@ -47,6 +47,15 @@ module.exports={
             id : 3,
         },
     ],
+     produs1 : {
+            img1: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            img2: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            img3: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            img4: "http://www.smuff.ro/public/upload/images/2015/04/cache/drona-quadcopter-video-live-feed-smuff-2.950x670-adaptive.jpg",
+            titlu: "titlu",
+            pret: "pret",
+    },
+
     about: {
       icon1: "http://www.therustypixel.com/images/icons/person_icon.gif",
       icon2: "http://www.totton.ac.uk/media/183449/person-icon-female_Square%20Crop.jpg",

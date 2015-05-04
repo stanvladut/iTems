@@ -8,13 +8,13 @@ var DefaultRoute = Router.DefaultRoute;
 
 var App = require('./app');
 var Home = require('./components/home');
-var Example = require('./components/example');
 var Category = require('./components/category');
+var ProductInfo = require('./components/product');
 
 module.exports = (
     <Route name="home" path="/" handler={App}>
-        <Route name="example" path="/example/:productId" handler={Example} />
         <Route name="category" path="/category/:categoryName" handler={Category} />
+        <Route name="product" path="/product/:productId" handler={ProductInfo} />
         <DefaultRoute handler={Home} />
     </Route>
 );

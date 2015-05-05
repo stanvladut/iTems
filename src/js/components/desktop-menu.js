@@ -28,7 +28,7 @@ var DesktopMmenu = React.createClass({
                                 <Link to="category" params={ { categoryName: "pentruCopii"} }><li>Pentru Copii</li></Link>
                             </ul>
                         </li>
-                        <li><strong><a href="contact.html">CONTACT</a></strong></li>
+                        <Link to="contact"><li><strong><a>CONTACT</a></strong></li></Link>
                     </ul>
                 </div>
             </section>

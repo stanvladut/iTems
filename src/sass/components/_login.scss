@@ -1,0 +1,55 @@
+.signup-content
+{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+    margin-top: 93px;
+}
+
+.login>div
+{
+    border:1px solid black;
+    padding: 20px;
+    height: 300px;
+}
+
+.login
+{
+    margin-top: 20px;
+}
+
+.login-page
+{
+    width: 900px;
+    margin: auto;
+}
+
+.login-page header-desktop
+{
+    height: auto;
+    width: 100%;
+}
+
+.login-page .header-logo
+{
+    width: 200px;
+    height: 100px;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.login-page .logo-big
+{
+    height: 100%;
+    width: auto;
+}
+
+@media all and (max-width:899px)
+    {
+        .login-page
+        {
+            width: 95%;
+        }
+    }

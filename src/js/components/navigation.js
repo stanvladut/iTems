@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Navigation = React.createClass({
   render: function() {
@@ -11,20 +13,20 @@ var Navigation = React.createClass({
             <div className="navigation-header">
                 <p>MENU</p>
             </div>
-            <li className="nav-item"><a href="#"><span>CATEGORII</span></a>
+            <li className="nav-item"><a><span>CATEGORII</span></a>
                 <ul>
-                    <li><a href="produse-test.html">Gadget-uri</a></li>
-                    <li><a href="produse-test.html">Cadouri trasnite</a></li>
-                    <li><a href="produse-test.html">Pentru casa</a></li>
-                    <li><a href="produse-test.html">Wtf?!</a></li>
-                    <li><a href="produse-test.html">Lifestyle</a></li>
-                    <li><a href="produse-test.html">Comestibile</a></li>
-                    <li><a href="produse-test.html">Pentru EL</a></li>
-                    <li><a href="produse-test.html">Pentru EA</a></li>
-                    <li><a href="produse-test.html">Pentru copii</a></li>
+                    <Link to="category" params={ { categoryName: "gadgets"} }><li>Gadget-uri</li></Link>
+                    <Link to="category" params={ { categoryName: "cadouriTrasnite"} }><li>Cadouri trasnite</li></Link>
+                    <Link to="category" params={ { categoryName: "pentruCasa"} }><li>Pentru casa</li></Link>
+                    <Link to="category" params={ { categoryName: "wtf"} }><li>Wtf?!</li></Link>
+                    <Link to="category" params={ { categoryName: "lifestyle"} }><li>Lifestyle</li></Link>
+                    <Link to="category" params={ { categoryName: "comestibile"} }><li>Comestibile</li></Link>
+                    <Link to="category" params={ { categoryName: "pentruEl"} }><li>Pentru EL</li></Link>
+                    <Link to="category" params={ { categoryName: "pentruEa"} }><li>Pentru EA</li></Link>
+                    <Link to="category" params={ { categoryName: "pentruCopii"} }><li>Pentru Copii</li></Link>
                 </ul>
             </li>
-            <li className="nav-item"><a href="contact.html">CONTACT</a></li>
+            <Link to="contact"><li className="nav-item"><a>CONTACT</a></li></Link>
             </ul>
 
             <ul className="navigation nav-shopping">

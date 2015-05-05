@@ -11,9 +11,9 @@ var Product = React.createClass({
     {
         return (
             <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
-                <Link to="product" params={ { productId: this.props.id } } product={this.props.id}><img src={this.props.img}/></Link>
-                <Link to="product" params={ { productId: this.props.id } } product={this.props.id}><p>{this.props.titlu}</p></Link>
-                <Link to="product" params={ { productId: this.props.id } } product={this.props.id}><p>{this.props.pret}</p></Link>
+                <Link to="product" params={ { productId: this.props.id } }><img src={this.props.img}/></Link>
+                <Link to="product" params={ { productId: this.props.id } }><p>{this.props.titlu}</p></Link>
+                <Link to="product" params={ { productId: this.props.id } }><p>{this.props.pret}</p></Link>
             </div>
            
         );

@@ -11,6 +11,12 @@ var Slideshow = require('../components/slideshow');
 var ProductList = require('../components/product-list');
 
 var Home = React.createClass({
+    getInitialState: function() {
+    return {
+      email: this.props.user,
+      password: this.props.pass,
+    };
+  },
   render: function() {
 
     return (
@@ -25,7 +31,7 @@ var Home = React.createClass({
         </section>
      
         <div className="container">
-            container
+            {this.state.email}
         </div>
      
     <Footer/>

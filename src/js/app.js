@@ -10,7 +10,7 @@ var App = React.createClass({
         return (
             <div>
                 <Navigation/>
-                <Router.RouteHandler {...this.state} />;
+                <Router.RouteHandler {...this.state} />
             </div>
         );
    

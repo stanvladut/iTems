@@ -2,43 +2,30 @@
 
 var React = require('react/addons');
 var $     = require('jquery');
+var Router = require('react-router');
 
-var HeaderMobile = require('../components/header-mobile');
-var HeaderDesktop = require('../components/header-desktop');
-var Footer = require('../components/footer');
-var DesktopMmenu = require('../components/desktop-menu');
 var Slideshow = require('../components/slideshow');
-var ProductList = require('../components/product-list');
+var ProductListSale = require('../components/product-list-sale');
 
 var Home = React.createClass({
-    getInitialState: function() {
-    return {
-      email: this.props.user,
-      password: this.props.pass,
-    };
-  },
-  render: function() {
-
+    
+    componentDidMount: function()
+    {    
+        if ($(".desktop-menu-list li ul").hasClass('hide-categories-menu'))
+            $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
+    },
+    
+    render: function() {
     return (
-    <div className="page">
-       
-        <HeaderMobile/>
-       
-        <section className="desktop">
-            <HeaderDesktop/>
-            <DesktopMmenu/>
+        <div>
             <Slideshow/>
-        </section>
-     
-        <div className="container">
-            {this.state.email}
+            <div className="container">
+                <h1>On sale</h1>
+                <ProductListSale categoryName="gadgets" />
+            </div>
         </div>
-     
-    <Footer/>
-    </div>
     );
-  },
-     
+  },    
 });
 
 module.exports = Home;

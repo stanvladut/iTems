@@ -6,10 +6,8 @@ var Link = Router.Link;
 var $ = require('jquery');
 
 var DesktopMmenu = React.createClass({
+  mixins: [ Router.State ],
   render: function() {
-      
-      
-      
     return (
         <div>
           <section className="desktop-menus">
@@ -35,10 +33,6 @@ var DesktopMmenu = React.createClass({
         </div>
     );
   },
-    componentDidMount : function()
-    {
-        if(this.props.show==="false") $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
-    }
 });
 
 module.exports = DesktopMmenu;

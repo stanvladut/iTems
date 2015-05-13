@@ -1,0 +1,47 @@
+@media all and (min-width:568px) and (max-width:1023px)
+{
+   .slideshow
+    {
+        margin: auto;
+        margin-top: 50px;
+        width: 97%;
+        height: auto;
+        display: block;
+    } 
+    
+    .slideshow img 
+    {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+@media all and (min-width:1024px)
+{
+    .slideshow
+    {
+        margin-top: -12px;
+        margin-left: 185px; 
+        width: 830px;
+        height: 405px;
+        display: block; 
+        border: 1px solid black;
+    }
+    
+    .slideshow img 
+    {
+        height: 100%;
+        width: auto;
+        display: block;
+        margin: auto;
+    }
+}
+
+@media all and (max-width: 567px)
+{
+    .slideshow
+    {
+        display: none;
+    }
+}

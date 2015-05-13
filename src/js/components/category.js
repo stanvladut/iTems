@@ -13,23 +13,16 @@ var ProductList = require('../components/product-list');
 var Category = React.createClass({
     mixins: [ Router.State ],
     
+    componentDidMount: function(){
+        if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
+            $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
+    },
+    
     render: function() {
     return (
-    <div className="page">
-       
-        <HeaderMobile/>
-       
-        <section className="desktop">
-            <HeaderDesktop/>
-            <DesktopMmenu show="false"/>
-        </section>
-     
         <div className="container">
             <ProductList categoryName={this.getParams().categoryName}/>
         </div>
-     
-    <Footer/>
-    </div>
     );
   },
     

@@ -1,0 +1,56 @@
+.cart-item>div
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    height: auto;
+}
+
+.cart-item
+{
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+    border-top: 1px dotted black;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.cart-image
+{
+    width: 100%;
+    height: auto;
+    padding: 3px;
+    padding-bottom: 3px;
+}
+
+.cart-title, .cart-price
+{
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.cart-title
+{
+   padding-left: 30px;
+}
+
+.cart-item button
+{
+    margin-top: 30px;
+}
+
+.cart-count
+{
+    font-size: 17px;
+    padding-top: 20px;
+}
+
+.cart-comanda
+{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}

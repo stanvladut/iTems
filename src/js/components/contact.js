@@ -9,6 +9,8 @@ var DesktopMmenu = require('../components/desktop-menu');
 var Slideshow = require('../components/slideshow');
 var ProductList = require('../components/product-list');
 
+var $ = require('jquery');
+
 var ContactStanga = React.createClass({
     render: function(){
         return(
@@ -73,18 +75,12 @@ var ContactDreapta = React.createClass({
 
 
 var Contact = React.createClass({
-  render: function() {
-
+    componentDidMount: function(){
+        if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
+            $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
+    },
+    render: function() {
     return (
-      <div className="page">
-       
-        <HeaderMobile/>
-       
-        <section className="desktop">
-            <HeaderDesktop/>
-            <DesktopMmenu show="false"/>
-        </section>
-     
         <div className="container">
             <section className="contact-content pure-g">
                 <ContactStanga/>
@@ -93,9 +89,6 @@ var Contact = React.createClass({
                 <ContactDreapta/>
             </section>
         </div>
-     
-    <Footer/>
-    </div>
     );
   }
 });

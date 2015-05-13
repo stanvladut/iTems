@@ -1,28 +1,21 @@
-.signup-content
-{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    border: 1px solid black;
-    margin-top: 93px;
-}
-
 .login>div
 {
-    border:1px solid black;
     padding: 20px;
-    height: 300px;
+    border: none;
 }
 
 .login
 {
     margin-top: 20px;
+    height: auto;
+    border: 1px solid black;
 }
 
 .login-page
 {
     width: 900px;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .login-page header-desktop
@@ -46,10 +39,30 @@
     width: auto;
 }
 
+.login-separator
+{
+    height: 380px;
+    width: 1px;
+    position: absolute;
+    background-color: black;
+    vertical-align: top;
+    margin-top: 25px;
+}
+
 @media all and (max-width:899px)
     {
         .login-page
         {
             width: 95%;
+        }
+       
+    }
+
+@media all and (max-width:566px)
+    {
+         
+        .login-separator
+        {
+            display: none;
         }
     }

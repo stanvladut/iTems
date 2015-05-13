@@ -3,6 +3,8 @@
 var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
+var cookie = require('react-cookie');
+var App = require('../app');
 
 var Navigation = React.createClass({
   render: function() {
@@ -33,14 +35,21 @@ var Navigation = React.createClass({
                 <div className="navigation-header">
                     <p>SHOPPING</p>
                 </div>
-                <li className="nav-item"><a href="account.html">CONT</a></li>
-                <li className="nav-item"><a href="cart.html">COS DE CUMPARATURI</a></li>
-                <li className="nav-item"><a href="whishlist.html">WISHLIST</a></li>
-                <li className="nav-item"><a href="#">LOG OUT</a></li>
+                <Link to="account"><li className="nav-item"><a>CONT</a></li></Link>
+                <Link to="cart"><li className="nav-item"><a>COS DE CUMPARATURI</a></li></Link>
+                <li className="nav-item" onClick={this.logOut}><a>LOG OUT</a></li>
             </ul>
         </div>
     );
-  }
+  },
+    
+    logOut: function()
+    {
+        cookie.remove('user');
+        alert("You've been logged out!");
+        location.reload();
+        <App/>
+    }
 });
 
 module.exports = Navigation;

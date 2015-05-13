@@ -6,7 +6,7 @@ var Router = require('react-router');
 var $ = require('jquery');
 var Link = Router.Link;
 
-var Product = React.createClass({
+var ProductSale = React.createClass({
     render: function()
     {
         return (
@@ -27,19 +27,20 @@ var Product = React.createClass({
             .then(function(status) {
                 alert(status);
         });
-    
-       event.preventDefault();
+        
+        event.preventDefault();
     }
+
 });
 
-var ProductList = React.createClass({
+var ProductListSale = React.createClass({
   
   getInitialState: function() {
       return {
           array:[],
       };
   },
-    
+     
   componentDidMount: function() {
      var String = '/'+this.props.categoryName+".json";
      $.get('http://www.json-generator.com/api/json/get/ctOpaTIdea?indent=2', function(result)      {
@@ -53,7 +54,7 @@ var ProductList = React.createClass({
   render: function() {
 
     return (
-        <div className="pure-g produse container">
+        <div className="pure-g produse">
             {this.renderProducts()}
         </div>
     );
@@ -66,10 +67,10 @@ var ProductList = React.createClass({
 
     renderProduct: function(info)
     {   
-        return <Product {...info} />
+        return <ProductSale {...info} />
     }
 });
 
-module.exports = ProductList;
+module.exports = ProductListSale;
 
 

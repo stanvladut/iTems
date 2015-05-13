@@ -3,57 +3,42 @@
 var React = require('react/addons');
 var $     = require('jquery');
 var Router = require('react-router');
-var Link = Router.Link;
+var cookie = require('react-cookie');
 
-
-var Login = React.createClass({
- getInitialState: function() {
-    return {
-      email: '',
-      password: '',
-    };
-  },
-  render: function() {
-
-    return (
-        <div className="login-page">
-            <header>
-                <figure className="header-logo">
-                    <img className="logo-big" src="img/logo.png"/>
-                </figure>
-            </header>
-            <section className="pure-g login">
-                <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-2">
-                    <div className="login-content">
-                        <p>Log In</p>
-                        <hr/>
-                        <form>
-                            <section className="form-row">
-                                <label>EMAIL <span className="required">*</span></label><br/>
-                                <input value={this.state.email} onChange={this.onChangeE} type="text" name="email" required/>
-                            </section>
-                            <section className="form-row">
-                                <label>PASSWORD <span className="required">*</span></label><br/>
-                                <input type="password" name="password" value={this.state.password} onChange={this.onChangeP} required/>
-                            </section>
-                            <section className="form-row">
-                                <Link to="home" params={{this.state.email} pass={this.state.password}}><button>Log In</button></Link>
-                            </section>
-                        </form>
-                    </div>
+var LoginComponent = React.createClass({
+    mixins:[Router.Navigation],
+    getInitialState: function() {
+        return {
+              email: '',
+              password: '',
+        };
+    },
+    render : function()
+    {
+        return(
+            <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-2">
+                <div className="login-content">
+                    <p>Log In</p>
+                    <hr/>
+                    <form onSubmit={this.LogIn}>
+                        <section className="form-row">
+                            <label>EMAIL<br/>
+                                <input value={this.state.email} type="text" onChange={this.onChangeE} required/>
+                            </label>
+                        </section>
+                        <section className="form-row">
+                            <label>PAROLA<br/>
+                                <input type="password" value={this.state.password} onChange={this.onChangeP} required/>
+                            </label>
+                        </section>
+                        <section className="form-row">
+                            <button>Log In</button>
+                        </section>
+                    </form>
                 </div>
-                <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-2">
-                    <div className="signup-content">
-                        <p>Nu ai cont?</p>
-                        <p>Creaza-ti unul usor</p>
-                        <button>Sign up</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-    );
-  },
-     
+            </div>
+        );
+    },
     onChangeE: function(event) 
     {
         this.setState({ email: event.target.value });
@@ -62,6 +47,137 @@ var Login = React.createClass({
     {
         this.setState({ password: event.target.value });
     },
+    LogIn: function(event)
+    {
+        cookie.save('user', this.state.email);
+        var self = this; 
+        $.post('/main', { username: this.state.email, password: this.state.password, type: "login"})
+            .always(function(status) {
+            if (status!='succes') self.props.logged(true, self.state.email);
+            else alert(status); 
+        });
+        
+        event.preventDefault();
+  },
+});
+
+var RegisterComponent = React.createClass({
+    getInitialState: function() {
+        return {
+              nume: '',
+              prenume: '',
+              email: '',
+              password: '',
+              adresa:'',
+              telefon: '',
+        };
+    },
+    render: function() {
+        return(
+         <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-2">
+                    <div className="login-content">
+                        <p>Nu ai cont? Inregistreaza-te!</p>
+                        <hr/>
+                        <form onSubmit={this.Register}>
+                            <section className="form-row">
+                                <label>Nume<br/>
+                                    <input value={this.state.nume} type="text" onChange={this.onChangeNume} required/>
+                                </label>
+                            </section>
+                            <section className="form-row">
+                                <label>Prenume  <br/>
+                                    <input value={this.state.prenume} type="text" onChange={this.onChangePrenume} required/>
+                                </label>
+                            </section>
+                            <section className="form-row">
+                                <label>Email </label><br/>
+                                <input value={this.state.email} type="text" onChange={this.onChangeE} required/>
+                            </section>
+                            <section className="form-row">
+                                <label>Parola <br/>
+                                    <input type="password" value={this.state.password} onChange={this.onChangeP} required/>
+                                </label>
+                            </section>
+                            <section className="form-row">
+                                <label>Adresa <br/>
+                                    <input value={this.state.adresa} type="text" onChange={this.onChangeAdress} required/>
+                                </label>
+                            </section>
+                            <section className="form-row">
+                                <label>Telefon<br/>
+                                    <input value={this.state.telefon} type="text" onChange={this.onChangeTelephone} required/>
+                                </label>
+                            </section>
+                            <section className="form-row">
+                                <button>Sign up</button>
+                            </section>
+                    </form>
+                    </div>
+                </div>
+           );
+    },
+    
+    onChangeE: function(event) 
+    {
+        this.setState({ email: event.target.value });
+    },
+    onChangeP: function(event)
+    {
+        this.setState({ password: event.target.value });
+    },
+    onChangeNume: function(event) 
+    {
+        this.setState({ nume: event.target.value });
+    },
+    onChangePrenume: function(event)
+    {
+        this.setState({ prenume: event.target.value });
+    },
+    onChangeAdress: function(event) 
+    {
+        this.setState({ adresa: event.target.value });
+    },
+    onChangeTelephone: function(event)
+    {
+        this.setState({ telefon: event.target.value });
+    },
+    Register: function(event)
+    {
+        $.post('/main', { nume: this.state.nume, prenume: this.state.prenume, adresa:this.state.adresa, password: this.state.password, telefon: this.state.telefon, email: this.state.email, type:"register"}).then(function(status) {
+            alert(status);
+        });
+        event.preventDefault();
+  },
+});
+
+var Login = React.createClass({
+    mixins: [ Router.State ],
+    getInitialState: function() {
+        return {
+              isLogged: 'false',
+            };
+    },
+    render: function() {
+    return (
+        <div className="login-page">
+            <header>
+                <figure className="header-logo">
+                    <img className="logo-big" src="img/logo.png"/>
+                </figure>
+            </header>
+            <section className="pure-g login">
+                <LoginComponent logged={this.isLogged}/>
+                <span className="login-separator"></span>
+                <RegisterComponent />
+            </section>
+        </div>
+        );
+    }, 
+
+    isLogged: function(loginComponentIsLogged, username)
+    {
+        this.props.status(loginComponentIsLogged, username); 
+    }
 });
 
 module.exports = Login;

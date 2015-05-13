@@ -6,7 +6,17 @@ var Footer = React.createClass({
   render: function() {
 
     return (
-      <small>Copyright smth</small>
+      <div className="pure-g footer">
+        <div className="pure-u-1 pure-u-sm-1-3">
+            yes
+        </div>
+        <div className="pure-u-1 pure-u-sm-1-3">
+            yes
+        </div>
+        <div className="pure-u-1 pure-u-sm-1-3">
+            yes
+        </div>
+      </div>
     );
   }
 });

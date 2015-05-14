@@ -17,26 +17,26 @@ var Navigation = React.createClass({
             </div>
             <li className="nav-item"><a><span>CATEGORII</span></a>
                 <ul>
-                    <Link to="category" params={ { categoryName: "gadgets"} }><li>Gadget-uri</li></Link>
-                    <Link to="category" params={ { categoryName: "cadouriTrasnite"} }><li>Cadouri trasnite</li></Link>
-                    <Link to="category" params={ { categoryName: "pentruCasa"} }><li>Pentru casa</li></Link>
-                    <Link to="category" params={ { categoryName: "wtf"} }><li>Wtf?!</li></Link>
-                    <Link to="category" params={ { categoryName: "lifestyle"} }><li>Lifestyle</li></Link>
-                    <Link to="category" params={ { categoryName: "comestibile"} }><li>Comestibile</li></Link>
-                    <Link to="category" params={ { categoryName: "pentruEl"} }><li>Pentru EL</li></Link>
-                    <Link to="category" params={ { categoryName: "pentruEa"} }><li>Pentru EA</li></Link>
-                    <Link to="category" params={ { categoryName: "pentruCopii"} }><li>Pentru Copii</li></Link>
+                    <li><Link to="category" params={ { categoryName: "gadgets"} }>Gadget-uri</Link></li>
+                    <li><Link to="category" params={ { categoryName: "cadouriTrasnite"} }>Cadouri trasnite</Link></li>
+                    <li><Link to="category" params={ { categoryName: "pentruCasa"} }>Pentru casa</Link></li>
+                    <li><Link to="category" params={ { categoryName: "wtf"} }>Wtf?!</Link></li>
+                    <li><Link to="category" params={ { categoryName: "lifestyle"} }>Lifestyle</Link></li>
+                    <li><Link to="category" params={ { categoryName: "comestibile"} }>Comestibile</Link></li>
+                    <li><Link to="category" params={ { categoryName: "pentruEl"} }>Pentru EL</Link></li>
+                    <li><Link to="category" params={ { categoryName: "pentruEa"} }>Pentru EA</Link></li>
+                    <li><Link to="category" params={ { categoryName: "pentruCopii"} }>Pentru Copii</Link></li>
                 </ul>
             </li>
-            <Link to="contact"><li className="nav-item"><a>CONTACT</a></li></Link>
+            <li className="nav-item"><Link to="contact">CONTACT</Link></li>
             </ul>
 
             <ul className="navigation nav-shopping">
                 <div className="navigation-header">
                     <p>SHOPPING</p>
                 </div>
-                <Link to="account"><li className="nav-item"><a>CONT</a></li></Link>
-                <Link to="cart"><li className="nav-item"><a>COS DE CUMPARATURI</a></li></Link>
+                <li className="nav-item"><Link to="account">CONT</Link></li>
+                <li className="nav-item"><Link to="cart">COS DE CUMPARATURI</Link></li>
                 <li className="nav-item" onClick={this.logOut}><a>LOG OUT</a></li>
             </ul>
         </div>

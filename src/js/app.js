@@ -39,7 +39,7 @@ var App = React.createClass({
                             <DesktopMmenu/>
                         </section>
                     
-                        <div className="pure-g all-page">
+                        <div className="pure-g all-content">
                             <div className="pure-u-1">
                                 <HeaderMobile/>
                             </div>

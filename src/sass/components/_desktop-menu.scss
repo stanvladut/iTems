@@ -1,0 +1,88 @@
+@media all and (min-width:1024px)
+{
+    .menu-bar
+    {
+        width: 100%;
+        border: 1px solid #00adef;
+        border-radius: 4px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin-top: 20px;
+        height: 50px;
+    }
+    
+    .desktop-menu-list
+    {
+        height: 100%;
+    }
+    
+    .desktop-menu-list>li
+    {
+        display: inline-block;
+        width: 180px;
+        text-align: center;
+        height: 100%;
+        padding-top: 16px;
+        font-size: 17px;
+    }
+    
+    .desktop-menu-list>li:hover
+    {
+        cursor: pointer;
+        background-color: #b3d56f; 
+        color: white;
+    }
+    
+    .desktop-menu-list>li:hover ul
+    {
+        display: block;
+    }
+    
+    .desktop-menu-list>li:first-child
+    {
+        background-color: #00adef;
+        color: white;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    
+    .desktop-menu-list>li:nth-child(2)
+    {
+        margin-left: 0px;
+    }
+    
+    .desktop-menu-list li ul
+    {
+        margin-left: -1px;
+    }
+    
+    .hide-categories-menu
+    {
+        display: none;
+    }
+    
+    .desktop-menu-list li ul
+    {
+        position: absolute;
+        width: 181px;
+        background: #00adef;
+        padding-top: 5px;
+        margin-top: 10px;
+        border-bottom-left-radius: 5px;
+    }
+    
+    .desktop-menu-list li ul li
+    {
+        padding-bottom: 15px;
+        padding-top: 15px;
+        font-size: 15px;
+        border-top: 1px dotted black;  
+    }
+    
+    .desktop-menu-list li ul li:hover
+    {
+        background-color: #b3d56f;
+        cursor: pointer;
+        border-bottom-left-radius: 5px;
+    }
+}

@@ -1,0 +1,271 @@
+@media all and (max-width:567px)
+{
+    .mobile-header
+    {
+        transition: 0.3s ease;
+        height: 50px;
+        width: 100%;
+        position: fixed;
+        border-bottom: 1px solid black;
+        z-index: 10;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    }
+    
+    .mobile-header div
+    {
+        margin: 5px;
+    }
+    
+    .mobile-header div img
+    {
+        height: 100%;
+        width: 100% auto;
+    }
+    
+    .header-item-left, .header-item-right
+    {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        cursor :pointer;
+    }
+    
+    .header-item-left
+    {
+        left:0;
+        top:0;
+    }
+    
+    .header-item-right
+    {
+        right:0;
+        top:0;
+    }
+    
+    .header-item-center
+    {
+        height: 40px;
+        width: 100%;
+        display: block;
+    }
+    
+    .header-item-center img
+    {
+        display: block;
+        margin: auto;
+    }
+    
+    .header-item-left
+    {
+        background-image: url(../img/menu-mobile-menu.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .header-item-right
+    {
+        background-image: url(../img/shopping%20cart.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+     .menu-left .header-item-left
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .menu-right .header-item-right
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media all and (min-width:568px) and (max-width:767px)
+{
+    .mobile-header
+    {
+        transition: 0.3s ease;
+        height: 50px;
+        width: 100%;
+        position: fixed;
+        border-bottom: 1px solid black;
+        z-index: 10;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    }
+    
+    .mobile-header div
+    {
+        margin: 5px;
+    }
+    
+    .mobile-header div img
+    {
+        height: 100%;
+        width: 100% auto;
+    }
+    
+    .header-item-left, .header-item-right
+    {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        cursor :pointer;
+    }
+    
+    .header-item-left
+    {
+        left:0;
+        top:0;
+    }
+    
+    .header-item-right
+    {
+        right:0;
+        top:0;
+    }
+    
+    .header-item-center
+    {
+        height: 40px;
+        width: 100%;
+        display: block;
+    }
+    
+    .header-item-center img
+    {
+        display: block;
+        margin: auto;
+    }
+    
+    .header-item-left
+    {
+        background-image: url(../img/menu-mobile-menu.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .header-item-right
+    {
+        background-image: url(../img/shopping%20cart.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+     .menu-left .header-item-left
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .menu-right .header-item-right
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media all and (min-width:768px) and (max-width:1023px)
+{
+    .mobile-header
+    {
+        transition: 0.3s ease;
+        height: 50px;
+        width: 100%;
+        position: fixed;
+        border-bottom: 1px solid black;
+        z-index: 10;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    }
+    
+    .mobile-header div
+    {
+        margin: 5px;
+    }
+    
+    .mobile-header div img
+    {
+        height: 100%;
+        width: 100% auto;
+    }
+    
+    .header-item-left, .header-item-right
+    {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        cursor :pointer;
+    }
+    
+    .header-item-left
+    {
+        left:0;
+        top:0;
+    }
+    
+    .header-item-right
+    {
+        right:0;
+        top:0;
+    }
+    
+    .header-item-center
+    {
+        height: 40px;
+        width: 100%;
+        display: block;
+    }
+    
+    .header-item-center img
+    {
+        display: block;
+        margin: auto;
+    }
+    
+    .header-item-left
+    {
+        background-image: url(../img/menu-mobile-menu.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .header-item-right
+    {
+        background-image: url(../img/shopping%20cart.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+     .menu-left .header-item-left
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+    
+    .menu-right .header-item-right
+    {
+        background-image: url(../img/menu-mobile-exit.png);
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media all and (min-width:1024px)
+{
+    .mobile-header
+    {
+        display: none;
+    }
+}

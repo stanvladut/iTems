@@ -9,14 +9,22 @@ var Link = Router.Link;
 var ProductSale = React.createClass({
     render: function()
     {
-        return (
-            
+        
+        return (  
             <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
                 <Link to="product" params={ { productId: this.props.id } }><img src={this.props.img}/></Link>
-                <Link to="product" params={ { productId: this.props.id } }><p>{this.props.titlu}</p></Link>
-                <Link to="product" params={ { productId: this.props.id } }><p>{this.props.minDesc}</p></Link>
-                <Link to="product" params={ { productId: this.props.id } }><p>{this.props.pret}</p></Link>
-                <button onClick={this.addToCart}>Add to cart</button>
+                <div className="produse-info">
+                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-title">{this.props.titlu}</p></Link>
+                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.minDesc}</p></Link>
+                    <Link to="product" params={ { productId: this.props.id } }>
+                        <p className="produse-pret">
+                            <span>{this.props.pret}</span>
+                            <span>{this.props.reducere}</span>
+                            LEI
+                        </p>
+                    </Link>
+                    <button onClick={this.addToCart}>Add to cart</button>
+                </div>
             </div>
            
         );
@@ -43,7 +51,7 @@ var ProductListSale = React.createClass({
      
   componentDidMount: function() {
      var String = '/'+this.props.categoryName+".json";
-     $.get('http://www.json-generator.com/api/json/get/ctOpaTIdea?indent=2', function(result)      {
+     $.get('http://www.json-generator.com/api/json/get/ciKYzdrHpK?indent=2', function(result)      {
       if (this.isMounted()) {
           this.setState({array:result});
       }
@@ -67,7 +75,7 @@ var ProductListSale = React.createClass({
 
     renderProduct: function(info)
     {   
-        return <ProductSale {...info} />
+        return <ProductSale reducere="500" {...info} />
     }
 });
 

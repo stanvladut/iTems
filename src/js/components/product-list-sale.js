@@ -15,7 +15,7 @@ var ProductSale = React.createClass({
                 <Link to="product" params={ { productId: this.props.id } }><img src={this.props.img}/></Link>
                 <div className="produse-info">
                     <Link to="product" params={ { productId: this.props.id } }><p className="produse-title">{this.props.titlu}</p></Link>
-                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.minDesc}</p></Link>
+                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.miniDesc}</p></Link>
                     <Link to="product" params={ { productId: this.props.id } }>
                         <p className="produse-pret">
                             <span>{this.props.pret}</span>
@@ -51,7 +51,7 @@ var ProductListSale = React.createClass({
      
   componentDidMount: function() {
      var String = '/'+this.props.categoryName+".json";
-     $.get('http://www.json-generator.com/api/json/get/ciKYzdrHpK?indent=2', function(result)      {
+     $.get(String, function(result)      {
       if (this.isMounted()) {
           this.setState({array:result});
       }

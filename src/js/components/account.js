@@ -29,6 +29,11 @@ var Account = React.createClass({
         };
     },
     
+     componentWillMount: function()
+    {
+       $(document.body).toggleClass('menu-right'); 
+    },
+    
    componentDidMount: function() 
     {
         var self=this;

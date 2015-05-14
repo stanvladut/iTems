@@ -21,7 +21,7 @@ var Home = React.createClass({
             <Slideshow/>
             <div className="container">
                 <h1>On sale</h1>
-                <ProductListSale/>
+                <ProductListSale categoryName="sale"/>
             </div>
         </div>
     );

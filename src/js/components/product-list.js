@@ -15,7 +15,7 @@ var Product = React.createClass({
                 <Link to="product" params={ { productId: this.props.id } }><img src={this.props.img}/></Link>
                 <div className="produse-info">
                     <Link to="product" params={ { productId: this.props.id } }><p className="produse-title">{this.props.titlu}</p></Link>
-                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.minDesc}</p></Link>
+                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.miniDesc}</p></Link>
                     <Link to="product" params={ { productId: this.props.id } }><p className="produse-price">{this.props.pret} LEI</p></Link>
                     <button onClick={this.addToCart}>Add to cart</button>
                 </div>
@@ -42,14 +42,19 @@ var ProductList = React.createClass({
       };
   },
     
+  componentWillMount: function()
+    {
+       $(document.body).toggleClass('menu-left'); 
+    },
+    
   componentDidMount: function() {
      var String = '/'+this.props.categoryName+".json";
-     $.get('http://www.json-generator.com/api/json/get/ctOpaTIdea?indent=2', function(result)      {
+     $.get(String, function(result)      {
       if (this.isMounted()) {
           this.setState({array:result});
       }
     }.bind(this));
-     
+   
   },
     
   render: function() {

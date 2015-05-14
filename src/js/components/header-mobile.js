@@ -10,7 +10,7 @@ var HeaderMobile = React.createClass({
     return (
         <header className="mobile-header">
             <div className="header-item-left" onClick={this.left}></div>
-            <div className="header-item-center"><Link to="home"><img src="img/mini-logo.png"/></Link></div>
+            <div className="header-item-center"><img src="img/mini-logo.png"/></div>
             <div className="header-item-right" onClick={this.right}></div>
         </header>
         );

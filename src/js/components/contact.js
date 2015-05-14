@@ -75,6 +75,10 @@ var ContactDreapta = React.createClass({
 
 
 var Contact = React.createClass({
+     componentWillMount: function()
+    {
+       $(document.body).toggleClass('menu-left'); 
+    },
     componentDidMount: function(){
         if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
             $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');

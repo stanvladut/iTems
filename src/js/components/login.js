@@ -52,8 +52,8 @@ var LoginComponent = React.createClass({
         cookie.save('user', this.state.email);
         var self = this; 
         $.post('/main', { username: this.state.email, password: this.state.password, type: "login"})
-            .always(function(status) {
-            if (status!='succes') self.props.logged(true, self.state.email);
+            .then(function(status) {
+            if (status==='succes') self.props.logged(true, self.state.email);
             else alert(status); 
         });
         

@@ -71,15 +71,10 @@ var ProductList = React.createClass({
 
     return (
         <div className="pure-g produse">
-            {this.renderProducts()}
+            {this.state.array.map(this.renderProduct)}
         </div>
     );
   },
-                                    
-    renderProducts: function()
-    {
-        return this.state.array.map(this.renderProduct);
-    },
 
     renderProduct: function(info)
     {   

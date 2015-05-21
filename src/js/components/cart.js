@@ -65,22 +65,23 @@ var Cart = React.createClass({
         return (
             <div className="pure-g cart-item">
                 <div className="pure-u-1-2 pure-u-sm-1-5"><img src={info.img} className="cart-image" /></div>
-                <div className="pure-u-1-2 pure-u-sm-1-5 cart-title">{info.titlu} lei</div>
-                <div className="pure-u-1-2 pure-u-sm-1-5 cart-price">{info.pret}</div>
+                <div className="pure-u-1-2 pure-u-sm-1-5 cart-title">{info.titlu}</div>
+                <div className="pure-u-1-2 pure-u-sm-1-5 cart-price">{info.pret} lei</div>
                 <div className="pure-u-1-2 pure-u-sm-1-5 cart-count">{info.nr_bucati} bucăți</div>
-                <div className="pure-u-1-2 pure-u-sm-1-5"><button onCLick={self.removeItem}>Remove</button></div>
+                <div className="pure-u-1-2 pure-u-sm-1-5"><button onCLick={self.removeItem.bind(this, info.id)}>Remove</button></div>
             </div>
         );
     },
         
-    removeItem: function()
+    removeItem: function(id, event)
     {
         var self=this;
-        $.post('/', {type: "remove_item"})
+        $.post('/', {id:id, type: "remove_item"})
             .then(function(result) {
             alert(result);
             if (result!='failed') self.setState({array:result});
         });
+        event.preventDefault();
     },
         
     placeCommand:function()

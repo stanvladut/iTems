@@ -13,17 +13,31 @@ var ProductList = require('../components/product-list');
 var Category = React.createClass({
     mixins: [ Router.State ],
     
+    getInitialState: function() {
+        return {
+            category:'',
+        }
+    },
+    componentWillMount: function()
+    {
+        this.setState({category:this.getParams().categoryName});
+    },
+    
+     componentWillReceiveProps: function(nextProps) {
+        this.setState({category: this.getParams().categoryName});
+    },
+    
     componentDidMount: function(){
         if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
             $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
     },
     
     render: function() {
-    return (
-        <div className="container">
-            <ProductList categoryName={this.getParams().categoryName}/>
-        </div>
-    );
+        return (
+            <div className="container">
+                <ProductList categoryName={this.state.category}/>
+            </div>
+        );
   },
     
       

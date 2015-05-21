@@ -16,7 +16,7 @@ var HeaderDesktop = React.createClass({
     
     componentWillMount: function()
     {
-        $.post('/user', {type: "user"})
+        $.post('/', {type: "user"})
             .then(function(result) {
                 this.setState({username:result});
         });

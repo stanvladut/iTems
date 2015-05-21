@@ -31,7 +31,7 @@ var ProductSale = React.createClass({
     },
     addToCart: function(event)
     {
-        $.post('/add_cart', {id:this.props.id, type: "add_cart"})
+        $.post('/', {id:this.props.id, type: "add_cart"})
             .then(function(status) {
                 alert(status);
         });

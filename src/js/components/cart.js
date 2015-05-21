@@ -40,7 +40,7 @@ var Cart = React.createClass({
     
    componentDidMount: function() {
        var self=this;
-        $.post('/cart', {type: "cart"}).then(function(result) {
+        $.post('/', {type: "cart"}).then(function(result) {
                 if (status!="failed") self.setState({array:result});
                 else alert(result); 
             });

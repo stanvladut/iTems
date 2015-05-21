@@ -25,7 +25,7 @@ var Product = React.createClass({
     },
     addToCart: function(event)
     {
-        $.post('/add_cart', {id:this.props.id, type: "add_cart"})
+        $.post('/', {id:this.props.id, type: "add_cart"})
             .then(function(status) {
                 alert(status);
         });
@@ -42,21 +42,31 @@ var ProductList = React.createClass({
       };
   },
     
-  componentWillMount: function()
-    {
-       $(document.body).toggleClass('menu-left'); 
+   componentWillReceiveProps: function(nextProps) {
+        this.mountThings(nextProps.categoryName)
     },
     
-  componentDidMount: function() {
-     var String = '/'+this.props.categoryName+".json";
-     $.get(String, function(result)      {
-      if (this.isMounted()) {
-          this.setState({array:result});
-      }
-    }.bind(this));
-   
-  },
     
+  componentWillMount: function()
+    {
+       this.setState({categoryName:this.props.categoryName});
+       $(document.body).toggleClass('menu-left');
+    },
+    
+   componentDidMount: function() {
+        this.mountThings(this.state.categoryName);
+    },
+    
+    mountThings: function(category)
+    {
+        var String = '/'+category+".json";
+        $.get(String, function(result)      {
+            if (this.isMounted()) {
+              this.setState({array:result});
+            }
+        }.bind(this));
+    },
+
   render: function() {
 
     return (

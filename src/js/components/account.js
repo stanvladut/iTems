@@ -37,15 +37,16 @@ var Account = React.createClass({
    componentDidMount: function() 
     {
         var self=this;
-        $.post('/user', {type: "user"}).then(function(status) {
+        $.post('/', {type: "user"}).then(function(status) {
             if (status!="failed") 
             {
+                var obj=JSON.parse(status);
                 self.setState({
-                    nume:satus.nume,
-                    prenume:status.prenume,
-                    adresa:status.adresa,
-                    password:status.password,
-                    telefon: status.telefon
+                    nume:obj.nume,
+                    prenume:obj.prenume,
+                    adresa:obj.adresa,
+                    password:obj.password,
+                    telefon: obj.telefon
                 });
             }
             else alert("Nu se pot incarca informatiile dumneavoastra. Ne cerem scuze!"); 

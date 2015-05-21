@@ -49,9 +49,8 @@ var LoginComponent = React.createClass({
     },
     LogIn: function(event)
     {
-        cookie.save('user', this.state.email);
         var self = this; 
-        $.post('/main', { username: this.state.email, password: this.state.password, type: "login"})
+        $.post('/', { username: this.state.email, password: this.state.password, type: "login"})
             .then(function(status) {
             if (status==='succes') self.props.logged(true, self.state.email);
             else alert(status); 
@@ -143,7 +142,7 @@ var RegisterComponent = React.createClass({
     },
     Register: function(event)
     {
-        $.post('/main', { nume: this.state.nume, prenume: this.state.prenume, adresa:this.state.adresa, password: this.state.password, telefon: this.state.telefon, email: this.state.email, type:"register"}).then(function(status) {
+        $.post('/', { nume: this.state.nume, prenume: this.state.prenume, adresa:this.state.adresa, password: this.state.password, telefon: this.state.telefon, email: this.state.email, type:"register"}).then(function(status) {
             alert(status);
         });
         event.preventDefault();

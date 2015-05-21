@@ -60,7 +60,7 @@ var ProductList = React.createClass({
     mountThings: function(category)
     {
         var String = '/'+category+".json";
-        $.get(String, function(result)      {
+        $.get(String, function(result){
             if (this.isMounted()) {
               this.setState({array:result});
             }

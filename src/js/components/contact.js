@@ -37,32 +37,34 @@ var ContactStanga = React.createClass({
 });
 
 var ContactDreapta = React.createClass({
+    getInitialState: function() {
+        return {
+              name: '',
+              email: '',
+              message:'',
+              telephone: ''
+        };
+    },
     render: function(){
         return(
             <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 pure-u-xl-1-2">
                     <h2 className="contact-us"><strong>CONTACT US:</strong></h2>
-                    <form>
+                    <form onSubmit={this.Contact}>
                         <section className="form-row">
                             <label>NUME <span className="required">*</span></label><br/>
-                            <input type="text" name="name" value="" required/>
+                            <input type="text" name="name" value={this.state.name} onChange={this.onChangeName} required/>
                         </section>
                         <section className="form-row">
                             <label>EMAIL ADRESS <span className="required">*</span></label><br/>
-                            <input type="email" name="email" value="" required/>
+                            <input type="email" name="email" value={this.state.email} onChange={this.onChangeEmail} required/>
                         </section>
                         <section className="form-row">
                             <label>TELEFON</label><br/>
-                            <input type="text" name="email" required placeholder="Pentru a fi contactat" value=""/>
-                        </section>
-                        <section className="form-row check">
-                            <label>
-                                <input type="checkbox" name="callback" id="callback" />
-                                Select if you would like us to call you back.
-                            </label>
+                            <input type="text" name="telephone" value={this.state.telephone} onChange={this.onChangeTelephone} required placeholder="Pentru a fi contactat"/>
                         </section>
                         <section className="form-row">
                             <label>MESAJ <span className="required">*</span></label>
-                            <textarea name="message" cols="25" rows="5"></textarea>
+                            <textarea name="message" cols="25" rows="5" value={this.state.message} onChange={this.onChangeMessage}></textarea>
                         </section>
                         <section className="form-row">
                             <button>SEND</button>
@@ -71,6 +73,29 @@ var ContactDreapta = React.createClass({
                 </div>
         );
     },
+    onChangeMessage: function(event) 
+    {
+        this.setState({ message: event.target.value });
+    },
+    onChangeName: function(event) 
+    {
+        this.setState({ name: event.target.value });
+    },
+    onChangeEmail: function(event) 
+    {
+        this.setState({ email: event.target.value });
+    },
+    onChangeTelephone: function(event)
+    {
+        this.setState({ telephone: event.target.value });
+    },
+    Contact: function(event)
+    {
+        $.post('/', { name: this.state.name, message:this.state.message, telephone: this.state.telephone, email: this.state.email, type:"contact"}).then(function(status) {
+            alert(status);
+        });
+        event.preventDefault();
+  },
 });
 
 

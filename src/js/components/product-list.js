@@ -7,6 +7,14 @@ var $ = require('jquery');
 var Link = Router.Link;
 
 var Product = React.createClass({
+    renderPrice:function()
+    {
+        if (this.props.reducere!='null')
+            return this.props.reducere+" LEI";
+        else if (this.props.pret!='null')
+            return this.props.pret+" LEI";
+        else return "stoc epuizat";
+    },
     render: function()
     {
         return (
@@ -16,7 +24,7 @@ var Product = React.createClass({
                 <div className="produse-info">
                     <Link to="product" params={ { productId: this.props.id } }><p className="produse-title">{this.props.titlu}</p></Link>
                     <Link to="product" params={ { productId: this.props.id } }><p className="produse-minDesc">{this.props.miniDesc}</p></Link>
-                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-price">{this.props.pret} LEI</p></Link>
+                    <Link to="product" params={ { productId: this.props.id } }><p className="produse-price">{this.renderPrice()}</p></Link>
                     <button onClick={this.addToCart}>Add to cart</button>
                 </div>
             </div>
@@ -25,11 +33,14 @@ var Product = React.createClass({
     },
     addToCart: function(event)
     {
-        $.post('/', {id:this.props.id, type: "add_cart"})
-            .then(function(status) {
-                alert(status);
-        });
-    
+        if (this.props.pret==='null'&&this.props.reducere==='null')
+            alert("stoc epuizat");
+        else {
+            $.post('/iTems/', {id:this.props.id, type: "add_cart"})
+                .then(function(status) {
+                    alert(status);
+            });
+        }
        event.preventDefault();
     }
 });
@@ -43,7 +54,9 @@ var ProductList = React.createClass({
   },
     
    componentWillReceiveProps: function(nextProps) {
-        this.mountThings(nextProps.categoryName)
+        this.mountThings(nextProps.categoryName);
+        if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
+            $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
     },
     
     
@@ -59,7 +72,7 @@ var ProductList = React.createClass({
     
     mountThings: function(category)
     {
-        var String = '/'+category+".json";
+        var String = '/iTems/'+category+".json";
         $.get(String, function(result){
             if (this.isMounted()) {
               this.setState({array:result});

@@ -1,8 +1,9 @@
 'use strict';
 
 var React = require('react/addons');
-var $     = require('jquery');
 var Router = require('react-router');
+var $ = require('jquery');
+var Link = Router.Link;
 
 var HeaderMobile = require('../components/header-mobile');
 var HeaderDesktop = require('../components/header-desktop');
@@ -10,6 +11,49 @@ var Footer = require('../components/footer');
 var DesktopMmenu = require('../components/desktop-menu');
 var Slideshow = require('../components/slideshow');
 var ProductList = require('../components/product-list');
+
+
+var CartItem = React.createClass({
+     renderPrice:function()
+    {
+        if (this.props.reducere!='null')
+            return this.props.reducere+" LEI";
+        else return this.props.pret+" LEI";
+    },
+    render: function()
+    {   
+        return (
+            <div className="pure-g cart-item">
+                <div className="pure-u-1-2 pure-u-sm-1-5">
+                    <Link to="product" params={ { productId: this.props.id } }><img src={this.props.location} className="cart-image" /></Link>
+                </div>
+                <div className="pure-u-1-2 pure-u-sm-1-5 cart-title">
+                    <Link to="product" params={ { productId: this.props.id } }>{this.props.titlu}</Link>
+                </div>
+                <div className="pure-u-1-2 pure-u-sm-1-5 cart-price">
+                    {this.renderPrice()}
+                </div>
+                <div className="pure-u-1-2 pure-u-sm-1-5 cart-count">
+                    {this.props.nr_bucati} bucăți
+                </div>
+                <div className="pure-u-1-2 pure-u-sm-1-5">
+                    <button onClick={this.removeItem}>Remove</button>
+                </div>
+            </div>
+        );
+    },
+        
+    removeItem: function()
+    {
+        var self=this;
+        $.post('/iTems/', {id:this.props.id, type: "remove_cart"})
+                .then(function(status) {
+                    alert(status);
+                    if (status==="Deleted cart!") location.reload();
+            });
+    },
+});
+
 
 var Cart = React.createClass({
     mixins: [ Router.State ],
@@ -26,8 +70,8 @@ var Cart = React.createClass({
     
    componentDidMount: function() {
        var self=this;
-        $.post('/', {type: "cart"}).then(function(result) {
-                if (status!="failed") self.setState({array:result});
+        $.post('/iTems/', {type: "cart"}).then(function(result) {
+                if (status!="failed") self.setState({array:JSON.parse(result)});
                 else alert(result); 
             });
        
@@ -43,10 +87,9 @@ var Cart = React.createClass({
             <div className="container">
                 <h1>Cosul de cumparaturi</h1>
                 {this.renderCart()}
-                <button className="cart-comanda" onClick={this.placeCommand}>Comandă !</button>
             </div>  
         );
-  },
+    },
                              
     renderCart: function()
     {
@@ -56,41 +99,27 @@ var Cart = React.createClass({
         }
         else 
         {
-          return this.state.array.map(this.renderProduct);
+            return(
+                <div>
+                    {this.state.array.map(this.renderProduct)}
+                    <button className="cart-comanda" onClick={this.placeCommand}>Comandă !</button>
+                </div>
+                );
         }
     },
+     
     renderProduct: function(info)
-    {   
-        var self=this;
-        return (
-            <div className="pure-g cart-item">
-                <div className="pure-u-1-2 pure-u-sm-1-5"><img src={info.img} className="cart-image" /></div>
-                <div className="pure-u-1-2 pure-u-sm-1-5 cart-title">{info.titlu}</div>
-                <div className="pure-u-1-2 pure-u-sm-1-5 cart-price">{info.pret} lei</div>
-                <div className="pure-u-1-2 pure-u-sm-1-5 cart-count">{info.nr_bucati} bucăți</div>
-                <div className="pure-u-1-2 pure-u-sm-1-5"><button onCLick={self.removeItem.bind(this, info.id)}>Remove</button></div>
-            </div>
-        );
-    },
-        
-    removeItem: function(id, event)
     {
-        var self=this;
-        $.post('/', {id:id, type: "remove_item"})
-            .then(function(result) {
-            alert(result);
-            if (result!='failed') self.setState({array:result});
-        });
-        event.preventDefault();
+        return <CartItem {...info} />;
     },
         
     placeCommand:function()
     {
         var self=this;
-        $.post('/', {type: "order"})
+        $.post('/iTems/', {type: "order"})
             .then(function(status) {
             alert(status);
-            if (status==='succes') self.setState({array:[]});
+            if (status==='succes') {self.setState({array:[]});window.reload();}
         });
     }
 });

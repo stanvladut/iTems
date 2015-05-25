@@ -32,12 +32,14 @@ var Account = React.createClass({
      componentWillMount: function()
     {
        $(document.body).toggleClass('menu-right'); 
+        this.setState({email:cookie.load('user')});
     },
     
    componentDidMount: function() 
     {
+        this.setState({email:cookie.load('user')});
         var self=this;
-        $.post('/', {type: "user"}).then(function(status) {
+        $.post('/iTems/', {type: "user"}).then(function(status) {
             if (status!="failed") 
             {
                 var obj=JSON.parse(status);
@@ -60,7 +62,7 @@ var Account = React.createClass({
         return (
             <div className="container">
                 <h1>Contul meu:<span className="my-account"> {this.state.email} </span></h1>
-                <p className="account-info">Nume: {this.state.prenume}{this.state.nume}</p>
+                <p className="account-info">Nume: {this.state.prenume} {this.state.nume}</p>
                 <p className="address-info">Adresa de livrare:</p>
                     <form onSubmit={this.submitAddress} className="account-address">
                         <input type="text" value={this.state.adresa} onChange={this.changeAddress} placeholder={this.state.adresa} required /><br/>
@@ -94,11 +96,11 @@ var Account = React.createClass({
         this.setState({ password2: event.target.value });
     },
     
-    changePass: function()
+    changePass: function(event)
     {
         if (this.state.password1===this.state.password2)
         {
-            $.post('/mod_user', {nume:this.state.nume, password: this.state.password1, prenume:this.state.prenume, adresa:this.state.adresa, telefon:this.state.telefon, type: "mod_user"})
+            $.post('/iTems/', {nume:this.state.nume, password: this.state.password1, prenume:this.state.prenume, adresa:this.state.adresa, telefon:this.state.telefon, type: "mod_user"})
                 .then(function(status) {
                     $(".account-error").text('');
                     if (status!="Failed to modify!") alert("Parola modificata cu succes");
@@ -108,11 +110,14 @@ var Account = React.createClass({
         else {
             $(".account-error").text("Cele 2 parole nu se potrivesc");
         }
+        
+        event.preventDefault();
     },
     
-    submitAddress: function()
+    submitAddress: function(event)
     {
-        $.post('/mod_user', {nume:this.state.nume, password: this.state.password, prenume:this.state.prenume, adresa:this.state.adresa, telefon:this.state.telefon, type: "mod_user"})
+        event.preventDefault();
+        $.post('/iTems/', {nume:this.state.nume, password: this.state.password, prenume:this.state.prenume, adresa:this.state.adresa, telefon:this.state.telefon, type: "mod_user"})
             .then(function(status) {
                 if (status!="Failed to modify!") alert("Adresa modificata cu succes!");
                 else alert("Operatia a esuat, incercati din nou"); 

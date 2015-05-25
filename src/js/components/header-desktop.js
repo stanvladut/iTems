@@ -16,9 +16,11 @@ var HeaderDesktop = React.createClass({
     
     componentWillMount: function()
     {
-        $.post('/', {type: "user"})
+        var self=this;
+        $.post('/iTems/', {type: "user"})
             .then(function(result) {
-                this.setState({username:result});
+            var obj = JSON.parse(result);
+            self.setState({username:obj.nume});
         });
     },
     

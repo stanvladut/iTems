@@ -55,6 +55,10 @@ a
 .produse-title
 {
     font-size: 20px;
+    white-space: nowrap; 
+    width: 90%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .produse-price

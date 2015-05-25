@@ -10,6 +10,7 @@ var App = require('./app');
 var Home = require('./components/home');
 var Category = require('./components/category');
 var ProductInfo = require('./components/product');
+var ProductInfoSale = require('./components/product-sale');
 var Contact = require('./components/contact');
 var Login = require('./components/login');
 var Cart = require('./components/cart');
@@ -20,8 +21,9 @@ module.exports = (
             <Route name="home" parh="/" handler={Home}/>
             <Route name="category" path="/category/:categoryName" handler={Category} />
             <Route name="product" path="/product/:productId" handler={ProductInfo} />
+            <Route name="product-sale" path="/product-sale/:productId" handler={ProductInfoSale} />
             <Route name="contact" parth="/contact" handler={Contact} />
-            <Route name="cart" parth="/cart" handler={Cart} />
+            <Route name="cart" parth="/cart" handler={Cart} /> 
             <Route name="account" parth="/account" handler={Account} />
             <DefaultRoute handler={Home}/>
         </Route>

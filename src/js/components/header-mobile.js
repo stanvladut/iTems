@@ -10,7 +10,7 @@ var HeaderMobile = React.createClass({
     return (
         <header className="mobile-header">
             <div className="header-item-left" onClick={this.left}></div>
-            <div className="header-item-center"><img src="img/mini-logo.png"/></div>
+            <div className="header-item-center"><img onClick={this.renderHome} src="img/mini-logo.png"/></div>
             <div className="header-item-right" onClick={this.right}></div>
         </header>
         );
@@ -25,6 +25,11 @@ var HeaderMobile = React.createClass({
     {
         $(document.body).toggleClass('menu-right'); 
     },
+        
+    renderHome : function()
+    {
+         window.location.href = '/iTems';
+    }
 });
 
 module.exports = HeaderMobile;

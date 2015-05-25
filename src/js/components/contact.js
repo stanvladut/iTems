@@ -91,10 +91,10 @@ var ContactDreapta = React.createClass({
     },
     Contact: function(event)
     {
-        $.post('/', { name: this.state.name, message:this.state.message, telephone: this.state.telephone, email: this.state.email, type:"contact"}).then(function(status) {
+        alert("Va multumim!");
+        $.post('/iTems/', { name: this.state.name, message:this.state.message, telephone: this.state.telephone, email: this.state.email, type:"contact"}).then(function(status) {
             alert(status);
         });
-        event.preventDefault();
   },
 });
 

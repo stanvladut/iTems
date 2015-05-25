@@ -4,9 +4,11 @@ var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 var $ = require('jquery');
+var cookie = require('react-cookie');
+var App = require('../app');
 
 var DesktopMmenu = React.createClass({
-  mixins: [ Router.State ],
+  mixins: [ Router.State, Router.Navigator ],
   render: function() {
     return (
         <div>
@@ -27,12 +29,21 @@ var DesktopMmenu = React.createClass({
                             </ul>
                         </li>
                         <Link to="contact"><li><strong><a>CONTACT</a></strong></li></Link>
+                        <Link to="home"><li className="logout-menu" onClick={this.logOut}><strong><a>Log Out</a></strong></li></Link>
                     </ul>
                 </div>
             </section>
         </div>
     );
   },
+    
+    logOut: function()
+    {
+        cookie.remove('user');
+        alert("You've been logged out!");
+        location.reload();
+        <App/>
+    }
 });
 
 module.exports = DesktopMmenu;

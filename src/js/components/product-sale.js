@@ -17,11 +17,10 @@ var Info=React.createClass({
             img2: '',
             img3: '',
             img4: '',
-            reducere: '',
             descriere: '',
             miniDesc: '',
             titlu: '',
-            pret: ''
+            reducere:''
         }
     },
     
@@ -38,7 +37,6 @@ var Info=React.createClass({
                     titlu: result.titlu,
                     descriere: result.descriere,
                     miniDesc: result.miniDesc,
-                    pret: result.pret
                 });
             }
         }.bind(this));
@@ -119,30 +117,26 @@ var Info=React.createClass({
         
      renderPrice:function()
     {
-        if (this.state.reducere!='null')
-            return this.state.reducere+" LEI";
-        else 
-            if (this.state.pret!='null') return this.state.pret+" LEI";
-        else return "Stoc epuizat";
+        if (this.state.reducere!='null') return this.state.reducere+" LEI";
+        else return "Stoc epuizat (reduceri)";
     },
     
     addToCart: function(event)
     {
-        if (this.state.pret==='null' && this.state.reducere==='null')
-            alert("stoc epuizat");
-        else {
+        if (this.state.reducere!='null'){
             $.post('/iTems/', {id:this.props.id, type: "add_cart"})
                 .then(function(status) {
                     alert(status);
             });
-        } 
+        }
+        else alert("stoc epuizat");
         
         event.preventDefault();
     }
 });
 
 
-var ProductInfo = React.createClass({
+var ProductInfoSale = React.createClass({
     mixins: [ Router.State ],
     componentDidMount: function(){
         if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
@@ -163,4 +157,4 @@ var ProductInfo = React.createClass({
       
 });
 
-module.exports = ProductInfo;
+module.exports = ProductInfoSale;

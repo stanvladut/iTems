@@ -50,13 +50,11 @@ var LoginComponent = React.createClass({
     LogIn: function(event)
     {
         var self = this; 
-        $.post('/', { username: this.state.email, password: this.state.password, type: "login"})
+        $.post('/iTems/', { username: this.state.email, password: this.state.password, type: "login"})
             .then(function(status) {
             if (status==='succes') self.props.logged(true, self.state.email);
             else alert(status); 
-        });
-        
-        event.preventDefault();
+        });   
   },
 });
 
@@ -142,10 +140,9 @@ var RegisterComponent = React.createClass({
     },
     Register: function(event)
     {
-        $.post('/', { nume: this.state.nume, prenume: this.state.prenume, adresa:this.state.adresa, password: this.state.password, telefon: this.state.telefon, email: this.state.email, type:"register"}).then(function(status) {
+        $.post('/iTems/', { nume: this.state.nume, prenume: this.state.prenume, adresa:this.state.adresa, password: this.state.password, telefon: this.state.telefon, email: this.state.email, type:"register"}).then(function(status) {
             alert(status);
         });
-        event.preventDefault();
   },
 });
 

@@ -25,6 +25,8 @@ var Category = React.createClass({
     
      componentWillReceiveProps: function(nextProps) {
         this.setState({category: this.getParams().categoryName});
+          if (!$(".desktop-menu-list li ul").hasClass('hide-categories-menu'))   
+            $(".desktop-menu-list li ul").toggleClass('hide-categories-menu');
     },
     
     componentDidMount: function(){

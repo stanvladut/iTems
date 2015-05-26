@@ -3,3 +3,5 @@ To run the entire project you need to install node.js and then to clone the repo
 After that, you must install „cookie” module with: npm install react-cookie (https://github.com/eXon/react-cookie) in the sane directory.
 
 The final step is to run „gulp” in command prompt and to observe the „build” folder which is compiled in the repository folder (this folder is included in gitignore, so it doesn't appear on git) . There you will find the compiled files which are used with the backend. Gulp command runs browserify, so you can check the website in browser on mobile or computer at : localhost:3000 when you still have the command prompt running gulp.
+
+You can check demo images and sql schema for the database.

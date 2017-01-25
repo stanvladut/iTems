@@ -1,3 +1,11 @@
+This is, definitely, greatest and the most complex project I’ve been working on before I get myself employed. It started as a project for the faculty’s courses, but became something that makes me work very hard at.
+
+So, I’ve made an eCommerce website based on ReactJS. The test server was made in Java and the database was made in mySQL, both by my 2 colleagues. It took me about 3 weeks for the client application to be done.
+
+Basically, the entire structure of the website is made in ReactJS. I’ve created about 12 components and some routes to get this done. It’s a SPA (single page application). I chose ReactJS for it's performance, but mostly because it is new and I wanted so much to learn more about it. The application was developed initially with node.js and then transferred to a Java server.
+
+As a styling fact, the website is fully responsive for 4 resolutions  stages ( <568px , >=568px && <768px, >=768px &&<1024px, >=1024px) .It took me a lot to choose how I want to design the menus in mobile versions, but I hope I’ve made a good decision. I tried to translate all the action of changing icons and triggering actions from javascript in css to speed up the app.
+
 To run the entire project you need to install node.js and then to clone the repository and to run „npm install” (https://docs.npmjs.com/cli/install) and the path must be the repository recently cloned path.
 
 After that, you must install „cookie” module with: npm install react-cookie (https://github.com/eXon/react-cookie) in the sane directory.
